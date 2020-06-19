@@ -1,0 +1,23 @@
+{
+  "name": "js-to-markdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config ./jest.config.json"
+  },
+  "author": "Davi Sena",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "glob": "^7.1.6",
+    "yargs": "^15.3.1",
+    "react-docgen": "^5.3.0"
+  },
+  "bin": {
+    "js-to-markdown": "./index.js"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}

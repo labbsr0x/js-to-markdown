@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1592448096774" clover="3.2.0">
+  <project timestamp="1592448096774" name="All files">
+    <metrics statements="178" coveredstatements="178" conditionals="101" coveredconditionals="99" methods="25" coveredmethods="25" elements="304" coveredelements="302" complexity="0" loc="178" ncloc="178" packages="4" files="19" classes="19"/>
+    <package name="__tests__.mocks">
+      <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="mockFileWithCBAllTag.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBAllTag.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBAllTagResult_JSMD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBAllTagResult_JSMD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBAllTagResult_MD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBAllTagResult_MD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBsTags.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBsTags.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBsTagsProptypes.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBsTagsProptypes.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBsTagsResult_JSMD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBsTagsResult_JSMD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithCBsTagsResult_MD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithCBsTagsResult_MD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithIgnoreTag.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithIgnoreTag.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="mockFileWithoutTags.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithoutTags.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="101" count="2" type="stmt"/>
+      </file>
+      <file name="mockFileWithoutTagsResult_JSMD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithoutTagsResult_JSMD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+      </file>
+      <file name="mockFileWithoutTagsResult_MD.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockFileWithoutTagsResult_MD.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+      </file>
+      <file name="mockPropTypes.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockPropTypes.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+      </file>
+      <file name="mockPropTypesResult.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/__tests__/mocks/mockPropTypesResult.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="53" coveredstatements="53" conditionals="35" coveredconditionals="35" methods="8" coveredmethods="8"/>
+      <file name="filterFileWithTags.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/filterFileWithTags.js">
+        <metrics statements="53" coveredstatements="53" conditionals="35" coveredconditionals="35" methods="8" coveredmethods="8"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="22" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="27" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="34" count="346" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="36" type="stmt"/>
+        <line num="36" count="36" type="stmt"/>
+        <line num="37" count="36" type="stmt"/>
+        <line num="38" count="310" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="306" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="302" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="6" type="stmt"/>
+        <line num="47" count="296" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="52" type="stmt"/>
+        <line num="49" count="52" type="stmt"/>
+        <line num="50" count="244" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="220" type="stmt"/>
+        <line num="52" count="220" type="stmt"/>
+        <line num="56" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="63" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="67" count="6" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="346" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="77" count="532" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="81" count="528" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="85" count="518" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="2" type="stmt"/>
+        <line num="89" count="524" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="244" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.constants">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="tags.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/constants/tags.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils">
+      <metrics statements="98" coveredstatements="98" conditionals="66" coveredconditionals="64" methods="17" coveredmethods="17"/>
+      <file name="common.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/utils/common.js">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="configValidation.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/utils/configValidation.js">
+        <metrics statements="21" coveredstatements="21" conditionals="22" coveredconditionals="22" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="7" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+      </file>
+      <file name="mdParseLine.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/utils/mdParseLine.js">
+        <metrics statements="19" coveredstatements="19" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="308" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="154" type="stmt"/>
+        <line num="5" count="154" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="308" type="stmt"/>
+      </file>
+      <file name="parsePropTypesToTable.js" path="/Users/davisena/Projects/BB/mobile/js-to-markdown/src/utils/parsePropTypesToTable.js">
+        <metrics statements="50" coveredstatements="50" conditionals="34" coveredconditionals="32" methods="8" coveredmethods="8"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="36" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="57" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="70" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="86" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="2" type="stmt"/>
+        <line num="91" count="10" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="9" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="14" type="stmt"/>
+        <line num="112" count="14" type="cond" truecount="4" falsecount="0"/>
+        <line num="113" count="3" type="stmt"/>
+        <line num="116" count="14" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
