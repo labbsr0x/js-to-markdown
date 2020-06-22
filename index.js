@@ -1,33 +1,32 @@
 #!/usr/bin/env node
-const glob = require('glob');
-const fs = require('fs');
-const colors = require('colors');
-const yargs = require('yargs');
+const glob = require("glob");
+const fs = require("fs");
+const colors = require("colors");
+const yargs = require("yargs");
 
-const options = yargs.usage('Usage: --config <ConfigFilePath>').option('c', {
-  alias: 'config',
-  describe: 'Path to cfg file js-to-markdown.config.js',
-  type: 'string',
+const options = yargs.usage("Usage: --config <ConfigFilePath>").option("c", {
+  alias: "config",
+  describe: "Path to cfg file js-to-markdown.config.js",
+  type: "string",
   demandOption: true,
 }).argv;
 
 /** LOCAL DEPENDENCIES */
 const configuration = require(`${options.config}`);
-const CommonUtils = require('./src/utils/common');
-const ConfigUtils = require('./src/utils/configValidation');
-const FileUtils = require('./src/utils/writeInFile');
-const MDParseLine = require('./src/utils/mdParseLine');
-const ParsePropTypes = require('./src/utils/parsePropTypesToTable');
-var reactDocs = require('react-docgen');
-const filterFileWithTags = require('./src/filterFileWithTags');
+const CommonUtils = require("./src/utils/common");
+const ConfigUtils = require("./src/utils/configValidation");
+const FileUtils = require("./src/utils/writeInFile");
+const ParsePropTypes = require("./src/propTypesToTable");
+var reactDocs = require("react-docgen");
+const filterFileWithTags = require("./src/filterFileWithTags");
 
 const arrayOfComponentsToIndex = [];
 
 const getFilesFromInputDirectories = function (callback) {
   glob(
     globalConfiguration.input +
-      (globalConfiguration.subfolders ? '/**' : '') +
-      '/*.js',
+      (globalConfiguration.subfolders ? "/**" : "") +
+      "/*.js",
     callback
   );
 };
@@ -51,7 +50,7 @@ const treatFiles = (err, res) => {
 };
 
 const processInputFile = (filePath) => {
-  const fileData = fs.readFileSync(filePath, 'UTF-8');
+  const fileData = fs.readFileSync(filePath, "UTF-8");
 
   if (fileData.length <= 0) {
     return;
@@ -60,42 +59,47 @@ const processInputFile = (filePath) => {
   const options = {
     filename: filePath,
     parserOptions: {
-      plugins: ['jsx', 'classProperties'],
+      plugins: ["jsx", "classProperties"],
       errorRecovery: true,
     },
   };
-  var componentInfo = reactDocs.parse(fileData, null, null, options);
 
-  const componentName = componentInfo.displayName;
+  var filename = filePath.replace(/^.*[\\\/]/, "").replace(".js", "");
+
+  try {
+    var componentInfo = reactDocs.parse(fileData, null, null, options);
+  } catch (err) {
+    componentInfo = {};
+  }
+
+  const componentName = componentInfo.displayName || filename;
   const mdFilePathWithComponantName = CommonUtils.createMDFilePath(
     componentName
   );
   const fileSeparatedByTags = filterFileWithTags(fileData);
 
-  if (fileSeparatedByTags.IGNORE || componentName === '') {
+  if (fileSeparatedByTags.IGNORE || componentName === "") {
     return;
   }
 
   arrayOfComponentsToIndex.push(componentName);
-  const propTypesTable = ParsePropTypes.parseProptypeToMDTable(
-    componentInfo.props
-  );
 
-  if (fileSeparatedByTags.MDLINES.length > 0) {
-    FileUtils.writeMDFile(
-      componentName,
-      mdFilePathWithComponantName,
-      fileSeparatedByTags.MDLINES,
-      propTypesTable
-    );
-  } else if (fileSeparatedByTags.NOTAGSRESULT.length > 0) {
-    FileUtils.writeMDFile(
-      componentName,
-      mdFilePathWithComponantName,
-      fileSeparatedByTags.NOTAGSRESULT,
-      propTypesTable
-    );
+  let propTypesTable = [];
+
+  if (globalConfiguration.propTypesToTable) {
+    propTypesTable = ParsePropTypes.parseProptypeToMDTable(componentInfo.props);
   }
+
+  if (fileSeparatedByTags.NOTAGSRESULT.length > 0) {
+    fileSeparatedByTags.MDLINES = fileSeparatedByTags.NOTAGSRESULT;
+  }
+
+  FileUtils.writeMDFile(
+    componentName,
+    mdFilePathWithComponantName,
+    fileSeparatedByTags.MDLINES,
+    propTypesTable
+  );
 };
 
 /** MAIN */

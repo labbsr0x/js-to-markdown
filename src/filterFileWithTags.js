@@ -1,5 +1,5 @@
-const TAGS = require('./constants/tags');
-const MDParseLine = require('./utils/mdParseLine');
+const TAGS = require("./constants/tags");
+const MDParseLine = require("./utils/mdParseLine");
 
 const filterFileWithTags = (fileData) => {
   const fileByTags = {
@@ -24,7 +24,7 @@ const filterFileWithTags = (fileData) => {
     return fileByTags;
   }
 
-  if (fileLinesInArray[0].includes(TAGS.CODE_BLOCK_ALL)) {
+  if (fileLinesInArray[0].includes(TAGS.CBALL)) {
     fileByTags.CODEALL = true;
     FLAGS.isCodeBlockAll = true;
     fileByTags.MDLINES.push(MDParseLine.getCodeBlockStart());
@@ -43,6 +43,7 @@ const filterFileWithTags = (fileData) => {
       FLAGS.isCodeBlock = false;
       fileByTags.MDLINES.push(MDParseLine.getCodeBlockEnd());
     } else if (isLineWithCommentsInFirstPosition(line)) {
+      fileByTags.NOTAGSRESULT.push(MDParseLine.lineAsMarkdown(line));
       fileByTags.MDLINES.push(MDParseLine.lineAsMarkdown(line));
     } else if (isLineInsideCodeBlock(FLAGS, line)) {
       line = MDParseLine.escapeJSCaracthersInLIne(line);
@@ -64,29 +65,41 @@ const filterFileWithTags = (fileData) => {
     fileByTags.MDLINES.push(MDParseLine.getCodeBlockEnd());
   }
 
-  return fileByTags;
+  const fileByTagsWithout = removeLastAddCharIfExists(fileByTags);
+
+  return fileByTagsWithout;
 };
 
 const isToCodeBlockAll = (FLAGS, line) => {
-  return (
-    FLAGS.isCodeBlockAll && line !== '' && !line.includes(TAGS.CODE_BLOCK_ALL)
-  );
+  return FLAGS.isCodeBlockAll && line !== "" && !line.includes(TAGS.CBALL);
 };
 
 const isLineWithCodeBlockStartFlag = (line) => {
-  return line.includes(TAGS.CODE_BLOCK_START);
+  return line.includes(TAGS.CBSTART);
 };
 
 const isLineWithCodeBlockEndFlag = (line) => {
-  return line.includes(TAGS.CODE_BLOCK_END);
+  return line.includes(TAGS.CBEND);
 };
 
 const isLineInsideCodeBlock = (FLAGS, line) => {
-  return FLAGS.isCodeBlock && line !== '';
+  return FLAGS.isCodeBlock && line !== "";
 };
 
 const isLineWithCommentsInFirstPosition = (line) => {
-  return line.startsWith('//') && !line.includes(TAGS.IGNORE);
+  const commentsRegex = RegExp(/^\s*\/\//);
+
+  if (commentsRegex.test(line)) {
+    return !isTagLine(line);
+  }
+
+  return false;
+};
+
+const isTagLine = (line) => {
+  return (
+    TAGS[line.replace("//", "").replace("@", "").toUpperCase()] !== undefined
+  );
 };
 
 const fileHasNoOtherTag = (FLAGS, line) => {
@@ -98,8 +111,28 @@ const fileHasNoOtherTag = (FLAGS, line) => {
     !isLineWithCommentsInFirstPosition(line) &&
     !isLineInsideCodeBlock(FLAGS, line) &&
     !FLAGS.isCodeBlock &&
-    line !== ''
+    line !== ""
   );
+};
+
+const removeLastAddCharIfExists = (fileByTags) => {
+  const localArrayFilesByTag = { ...fileByTags };
+  const { MDLINES, NOTAGSRESULT } = localArrayFilesByTag;
+
+  if (MDLINES && MDLINES.length > 0) {
+    MDLINES[MDLINES.length - 1] = MDLINES[MDLINES.length - 1].replace(
+      /\+\s*$/,
+      ""
+    );
+  }
+
+  if (NOTAGSRESULT && NOTAGSRESULT.length > 0) {
+    NOTAGSRESULT[NOTAGSRESULT.length - 1] = NOTAGSRESULT[
+      NOTAGSRESULT.length - 1
+    ].replace(/\+\s*$/, "");
+  }
+
+  return localArrayFilesByTag;
 };
 
 module.exports = filterFileWithTags;

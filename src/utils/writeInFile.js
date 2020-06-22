@@ -1,5 +1,5 @@
-const fs = require('fs');
-const CommonUtils = require('./common');
+const fs = require("fs");
+const CommonUtils = require("./common");
 
 exports.writeMDFile = (
   componentName,
@@ -9,12 +9,12 @@ exports.writeMDFile = (
 ) => {
   const finalMDArray = mdLinesArray.concat(propTypesArray);
 
-  const mdStringData = finalMDArray.join('');
+  const mdStringData = finalMDArray.join("");
 
   const file = fs.createWriteStream(fileName);
 
   if (globalConfiguration.outputJsMarkdown) {
-    file.write('export const ' + componentName + ' = \n');
+    file.write("export const " + componentName + " = \n");
   }
 
   file.write(mdStringData);
@@ -27,6 +27,6 @@ exports.writeIndexFile = (arrayOfComponentsToIndex) => {
     file.write(`import { ${component} } from './${component}.md';\n`);
   });
 
-  file.write(`\nexport { \n ${arrayOfComponentsToIndex.join(',\n')} \n}`);
+  file.write(`\nexport { \n ${arrayOfComponentsToIndex.join(",\n")} \n}`);
   file.end();
 };

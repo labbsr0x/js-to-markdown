@@ -11,6 +11,7 @@ const mockFileWithoutTagsResult_JSMD = [
   "'  FlatList, \\n'+\n",
   "'  SearchBarInput, \\n'+\n",
   `'} from "react-native-ui"; \\n'+\n`,
+  "'Testing the comments in a no tag file\\n\\n'+\n",
   "'export default class IconStory extends React.Component { \\n'+\n",
   "'  state = { \\n'+\n",
   "'    arrayWithFilter: iconsList.iconNameArray, \\n'+\n",

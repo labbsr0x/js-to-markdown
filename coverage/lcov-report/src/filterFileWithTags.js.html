@@ -293,7 +293,7 @@ const filterFileWithTags = (fileData) =&gt; {
     return fileByTags;
   }
 &nbsp;
-  if (fileLinesInArray[0].includes(TAGS.CODE_BLOCK_ALL)) {
+  if (fileLinesInArray[0].includes(TAGS.CBALL)) {
     fileByTags.CODEALL = true;
     FLAGS.isCodeBlockAll = true;
     fileByTags.MDLINES.push(MDParseLine.getCodeBlockStart());
@@ -338,16 +338,16 @@ const filterFileWithTags = (fileData) =&gt; {
 &nbsp;
 const isToCodeBlockAll = (FLAGS, line) =&gt; {
   return (
-    FLAGS.isCodeBlockAll &amp;&amp; line !== '' &amp;&amp; !line.includes(TAGS.CODE_BLOCK_ALL)
+    FLAGS.isCodeBlockAll &amp;&amp; line !== '' &amp;&amp; !line.includes(TAGS.CBALL)
   );
 };
 &nbsp;
 const isLineWithCodeBlockStartFlag = (line) =&gt; {
-  return line.includes(TAGS.CODE_BLOCK_START);
+  return line.includes(TAGS.CBSTART);
 };
 &nbsp;
 const isLineWithCodeBlockEndFlag = (line) =&gt; {
-  return line.includes(TAGS.CODE_BLOCK_END);
+  return line.includes(TAGS.CBEND);
 };
 &nbsp;
 const isLineInsideCodeBlock = (FLAGS, line) =&gt; {
