@@ -4,7 +4,7 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 ![GitHub](https://github.com/labbsr0x/js-to-markdown/workflows/Node.js%20CI/badge.svg)
 
-A node program to generate markdown automatically from jsx files. Pull requests are welcome! 😃 🎉
+A node program to generate markdown automatically from js files. Pull requests are welcome! 😃 🎉
 
 ## Table of Contents
 
