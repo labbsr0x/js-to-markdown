@@ -10,12 +10,12 @@ A node program to generate markdown automatically from js files. Pull requests a
 
 - [Getting Started](#getting-started)
 - [Running from command line](#running-from-command-line)
-- [Configuration File](#onfiguration-file)
+- [Configuration File](#configuration-file)
 - [Configuration File Options](#configuration-file-options)
 - [TAGS used to document the JS Code](#tags-used-to-document-the-js-code)
 - [Examples](#examples)
-  - [Using @CBAll tag](#using-@cball-tag)
-  - [Using @CBStart, @CBEnd tags and markdown comments](#using-@cbstart,-@cbend-tags-and-markdown-comments)
+  - [Using @CBAll tag](#using-cball-tag)
+  - [Using @CBStart, @CBEnd tags and markdown comments](#using-cbstart-cbend-tags-and-markdown-comments)
   - [Generating markdown with PropTypes table](#generating-markdown-with-propTypes-table)
 - [Roadmap](#roadmap)
 
