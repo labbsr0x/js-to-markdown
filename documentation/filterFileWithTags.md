@@ -1,23 +1,25 @@
-// # Filter and parse file with tags
-const TAGS = require("./constants/tags");
-const MDParseLine = require("./utils/mdParseLine");
+ # Filter and parse file with tags
 
-// ## filterFileWithTags
-// **Main function** to parse and filter all source code lines with functions to decide how the line must be printed in the markdown document.
-// This function returns an object with this data:
-// - IGNORE  - `boolean` - that indicates no line was parsed to markdown
-// - MDLINES - `array`   - array with all markdown lines filter by tags
-// - NOTAGSRESULT - `array` - array with all lines as block code if no tags was found in source code
-//@CBStart
+ ## filterFileWithTags
+
+ **Main function** to parse and filter all source code lines with functions to decide how the line must be printed in the markdown document.
+
+ This function returns an object with this data:
+
+ - IGNORE  - `boolean` - that indicates no line was parsed to markdown
+
+ - MDLINES - `array`   - array with all markdown lines filter by tags
+
+ - NOTAGSRESULT - `array` - array with all lines as block code if no tags was found in source code
+
+```
 const filterFileWithTags = (fileData) => {
   const fileByTags = {
     IGNORE: false,
     MDLINES: [],
     NOTAGSRESULT: [],
   };
-
   const fileLinesInArray = fileData.split(/\r?\n/);
-
   const FLAGS = {
     isCodeBlockAll: false,
     isCodeBlock: false,
@@ -25,17 +27,14 @@ const filterFileWithTags = (fileData) => {
     parentesisGroupCount: 1,
     hasOtherTag: false,
   };
-
   if (fileLinesInArray[0].includes(TAGS.IGNORE)) {
     fileByTags.IGNORE = true;
     return fileByTags;
   }
-
   if (fileLinesInArray[0].includes(TAGS.CBALL)) {
     FLAGS.isCodeBlockAll = true;
     fileByTags.MDLINES.push(MDParseLine.getCodeBlockStart());
   }
-
   fileLinesInArray.forEach((line) => {
     if (isToCodeBlockAll(FLAGS, line)) {
       FLAGS.hasOtherTag = true;
@@ -59,90 +58,98 @@ const filterFileWithTags = (fileData) => {
       fileByTags.NOTAGSRESULT.push(MDParseLine.lineAsCode(line));
     }
   });
-
   if (FLAGS.hasOtherTag) {
     fileByTags.NOTAGSRESULT = [];
   } else {
     fileByTags.NOTAGSRESULT.unshift(MDParseLine.getCodeBlockStart());
     fileByTags.NOTAGSRESULT.push(MDParseLine.getCodeBlockEnd());
   }
-
   if (FLAGS.isCodeBlockAll) {
     fileByTags.MDLINES.push(MDParseLine.getCodeBlockEnd());
   }
-
   const fileByTagsWithout = removeLastAddCharIfExists(fileByTags);
-
   return fileByTagsWithout;
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isToCodeBlockAll
-// Returns `true` if the line is a CBAll tag
-//@CBStart
+ ## isToCodeBlockAll
+
+ Returns `true` if the line is a CBAll tag
+
+```
 const isToCodeBlockAll = (FLAGS, line) => {
   return FLAGS.isCodeBlockAll && line !== "" && !line.includes(TAGS.CBALL);
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isLineWithCodeBlockStartFlag
-// Returns `true` if the line is a CBStart tag
-//@CBStart
+ ## isLineWithCodeBlockStartFlag
+
+ Returns `true` if the line is a CBStart tag
+
+```
 const isLineWithCodeBlockStartFlag = (line) => {
   return line.includes(TAGS.CBSTART);
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isLineWithCodeBlockEndFlag
-// Returns `true` if the line is a CBEnd tag
-//@CBStart
+ ## isLineWithCodeBlockEndFlag
+
+ Returns `true` if the line is a CBEnd tag
+
+```
 const isLineWithCodeBlockEndFlag = (line) => {
   return line.includes(TAGS.CBEND);
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isLineInsideCodeBlock
-// Returns `true` if a code block is 'open' and indicates that the line must be printed as a code line.
-//@CBStart
+ ## isLineInsideCodeBlock
+
+ Returns `true` if a code block is 'open' and indicates that the line must be printed as a code line.
+
+```
 const isLineInsideCodeBlock = (FLAGS, line) => {
   return FLAGS.isCodeBlock && line !== "";
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isLineWithCommentsInFirstPosition
-// Returns `true` if the line is a comment and is not a tag.
-//@CBStart
+ ## isLineWithCommentsInFirstPosition
+
+ Returns `true` if the line is a comment and is not a tag.
+
+```
 const isLineWithCommentsInFirstPosition = (line) => {
   const commentsRegex = RegExp(/^\s*\/\//);
-
   if (commentsRegex.test(line)) {
     return !isTagLine(line);
   }
-
   return false;
 };
-//@CBEnd
+```
+---
 
-//---
-// ## isTagLine
-// Returns `true` if the line is a tag (CBAll, CBStart, CBEnd or ignore) line.
-//@CBStart
+ ## isTagLine
+
+ Returns `true` if the line is a tag (CBAll, CBStart, CBEnd or ignore) line.
+
+```
 const isTagLine = (line) => {
   return (
     TAGS[line.replace("//", "").replace("@", "").toUpperCase()] !== undefined
   );
 };
-//@CBEnd
+```
+---
 
-//---
-// ## fileHasNoOtherTag
-// This function is used to put all file lines at the NOTAGSRESULT array if no other tag was found in file.
-//@CBStart
+ ## fileHasNoOtherTag
+
+ This function is used to put all file lines at the NOTAGSRESULT array if no other tag was found in file.
+
+```
 const fileHasNoOtherTag = (FLAGS, line) => {
   return (
     !FLAGS.hasOtherTag &&
@@ -155,32 +162,30 @@ const fileHasNoOtherTag = (FLAGS, line) => {
     line !== ""
   );
 };
-//@CBEnd
+```
+---
 
-//---
-// ## removeLastAddCharIfExists
-// Function to remove the `+` characther if it exists in the last array element.
-// This function is necessary to delete any extra plus character.
-//@CBStart
+ ## removeLastAddCharIfExists
+
+ Function to remove the `+` characther if it exists in the last array element.
+
+ This function is necessary to delete any extra plus character.
+
+```
 const removeLastAddCharIfExists = (fileByTags) => {
   const localArrayFilesByTag = { ...fileByTags };
   const { MDLINES, NOTAGSRESULT } = localArrayFilesByTag;
-
   if (MDLINES && MDLINES.length > 0) {
     MDLINES[MDLINES.length - 1] = MDLINES[MDLINES.length - 1].replace(
-      /\+\s*$/,
+      /\+\s*\$/,
       ""
     );
   }
-
   if (NOTAGSRESULT && NOTAGSRESULT.length > 0) {
     NOTAGSRESULT[NOTAGSRESULT.length - 1] = NOTAGSRESULT[
       NOTAGSRESULT.length - 1
-    ].replace(/\+\s*$/, "");
+    ].replace(/\+\s*\$/, "");
   }
-
   return localArrayFilesByTag;
 };
-//@CBEnd
-
-module.exports = filterFileWithTags;
+```

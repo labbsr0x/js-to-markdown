@@ -19,28 +19,24 @@ describe("Markdown - Testing FilterFileWithTags function...", () => {
   it("File with @ignore tag at beginning", () => {
     const resultObject = filterFileWithTags(mockFileWithIgnoreTag);
     expect(resultObject.IGNORE).toEqual(true);
-    expect(resultObject.CODEALL).toEqual(false);
     expect(resultObject.MDLINES).toEqual([]);
     expect(resultObject.NOTAGSRESULT).toEqual([]);
   });
   it("File with @CBAll tag at beginning", () => {
     const resultObject = filterFileWithTags(mockFileWithCBAllTag);
     expect(resultObject.IGNORE).toEqual(false);
-    expect(resultObject.CODEALL).toEqual(true);
     expect(resultObject.MDLINES).toEqual(mockFileWithCBAllTagResult);
     expect(resultObject.NOTAGSRESULT).toEqual([]);
   });
   it("File with @CBStart and @CBEnd tags", () => {
     const resultObject = filterFileWithTags(mockFileWithCBsTag);
     expect(resultObject.IGNORE).toEqual(false);
-    expect(resultObject.CODEALL).toEqual(false);
     expect(resultObject.MDLINES).toEqual(mockFileWithCBsTagResult);
     expect(resultObject.NOTAGSRESULT).toEqual([]);
   });
   it("File with NO tags", () => {
     const resultObject = filterFileWithTags(mockFileWithoutTags);
     expect(resultObject.IGNORE).toEqual(false);
-    expect(resultObject.CODEALL).toEqual(false);
     expect(resultObject.MDLINES).toEqual([
       "Testing the comments in a no tag file\n\n",
     ]);
