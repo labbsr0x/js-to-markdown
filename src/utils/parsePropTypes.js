@@ -1,7 +1,9 @@
 const MDPaseLine = require("./mdParseLine");
+// # Functions to parse PropTypes to Table
 
-exports.getPropTypesTableHead = () => {};
-
+// ## getPropTypesTableRowAsString
+// Function that receives the proptype data and returns the propType table line as string.
+//@CBStart
 exports.getPropTypesTableRowAsString = (
   propertyName,
   type,
@@ -11,7 +13,12 @@ exports.getPropTypesTableRowAsString = (
 ) => {
   return `${propertyName} | ${type} | ${defaultValue} | ${isRequired} | ${description}`;
 };
+//@CBEnd
 
+//---
+// ## getDefaultValue
+// Receives the propType defaultValue object and returns the default value as string, if exists, or the string `none`.
+//@CBStart
 exports.getDefaultValue = (defaultValueObject) => {
   let defaultValueResponse = "none";
 
@@ -21,7 +28,12 @@ exports.getDefaultValue = (defaultValueObject) => {
 
   return defaultValueResponse;
 };
+//@CBEnd
 
+//---
+// ## getStringPreparedToMarkdown
+// Function to prepare string that will be added to markdown with especial breakline notation depending if it is a .md or a .md.js file.
+//@CBStart
 exports.getStringPreparedToMarkdown = (proptypeData) => {
   if (globalConfiguration.outputJsMarkdown) {
     const treatedJSData = MDPaseLine.escapeJSCaracthersInLIne(proptypeData);
@@ -30,3 +42,4 @@ exports.getStringPreparedToMarkdown = (proptypeData) => {
 
   return `${proptypeData}\n`;
 };
+//@CBEnd

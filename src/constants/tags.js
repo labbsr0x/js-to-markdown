@@ -1,3 +1,4 @@
+//@ignore
 module.exports = Object.freeze({
   IGNORE: "@ignore",
   CBALL: "@CBAll",
