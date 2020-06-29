@@ -5,7 +5,7 @@
 ![GitHub](https://github.com/labbsr0x/js-to-markdown/workflows/Node.js%20CI/badge.svg)
 ![documented with js-to-markdown](https://img.shields.io/badge/documented%20with-js--to--markdown-blue)
 
-A node program to generate markdown automatically from js files. Pull requests are welcome! 😃 🎉
+A node program to generate markdown automatically from js files. Pull requests and Issues are welcome! 😃 🎉
 
 ## Table of Contents
 
