@@ -1,6 +1,8 @@
  # Config property validation
 
- # treatConfigurationProps
+This file uses log functions from [Common Utils](./common.md)
+
+ ## treatConfigurationProps
 
  Treat the configuration properties defined by user.
 

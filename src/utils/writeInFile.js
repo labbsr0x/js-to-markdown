@@ -1,4 +1,5 @@
 const fs = require("fs");
+//This file uses `createIndexFilePath` function from [Common Utils](./common.md)
 const CommonUtils = require("./common");
 
 // # Functions to write markdown array data to file

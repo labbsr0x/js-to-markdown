@@ -1,5 +1,6 @@
-const MDPaseLine = require("./mdParseLine");
 // # Functions to parse PropTypes to Table
+//This file uses `escapeJSCaracthersInLIne` function from [MDParseLine](./mdParseLine.md)
+const MDPaseLine = require("./mdParseLine");
 
 // ## getPropTypesTableRowAsString
 // Function that receives the proptype data and returns the propType table line as string.

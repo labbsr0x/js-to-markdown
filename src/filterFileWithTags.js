@@ -1,5 +1,6 @@
 // # Filter and parse file with tags
 const TAGS = require("./constants/tags");
+//To parse lines to markdown style we use the parse functions [@MDParseLine](./mdParseLine.md)
 const MDParseLine = require("./utils/mdParseLine");
 
 // ## filterFileWithTags

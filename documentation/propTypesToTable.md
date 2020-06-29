@@ -1,5 +1,7 @@
  # PropTypes To Table
 
+To parse propTypes to markdown table rown we use the functions [@ParsePropTypes](./parsePropTypes.md)
+
  ## parseProptypeToMDTable
 
  Initial function to parse propTypes into markdown table.

@@ -1,5 +1,7 @@
  # Functions to parse PropTypes to Table
 
+This file uses `escapeJSCaracthersInLIne` function from [MDParseLine](./mdParseLine.md)
+
  ## getPropTypesTableRowAsString
 
  Function that receives the proptype data and returns the propType table line as string.

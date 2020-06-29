@@ -1,8 +1,9 @@
 // # Config property validation
 const fs = require("fs");
+//This file uses log functions from [Common Utils](./common.md)
 const commonUtils = require("./common");
 
-// # treatConfigurationProps
+// ## treatConfigurationProps
 // Treat the configuration properties defined by user.
 // This function sets the default values to props that were not defined by user on cfg file.
 // It receives a configuration object, copy it to a local variable, treat values and return a new object with final configuration props.

@@ -1,7 +1,8 @@
+// # PropTypes To Table
+
+//To parse propTypes to markdown table rown we use the functions [@ParsePropTypes](./parsePropTypes.md)
 const ParseProptypeUtils = require("./utils/parsePropTypes");
 const DOUBLE_BREAKING_SPACE = "  ";
-
-// # PropTypes To Table
 
 // ## parseProptypeToMDTable
 // Initial function to parse propTypes into markdown table.

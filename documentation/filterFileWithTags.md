@@ -1,5 +1,7 @@
  # Filter and parse file with tags
 
+To parse lines to markdown style we use the parse functions [@MDParseLine](./mdParseLine.md)
+
  ## filterFileWithTags
 
  **Main function** to parse and filter all source code lines with functions to decide how the line must be printed in the markdown document.

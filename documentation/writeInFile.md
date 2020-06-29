@@ -1,3 +1,5 @@
+This file uses `createIndexFilePath` function from [Common Utils](./common.md)
+
  # Functions to write markdown array data to file
 
  ## writeMDFile
