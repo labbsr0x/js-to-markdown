@@ -8,11 +8,19 @@ To parse lines to markdown style we use the parse functions [@MDParseLine](./mdP
 
  This function returns an object with this data:
 
+<details>
+
+<summary>Function parameters</summary>
+
+<br>
+
  - IGNORE  - `boolean` - that indicates no line was parsed to markdown
 
  - MDLINES - `array`   - array with all markdown lines filter by tags
 
  - NOTAGSRESULT - `array` - array with all lines as block code if no tags was found in source code
+
+</details>
 
 ```
 const filterFileWithTags = (fileData) => {

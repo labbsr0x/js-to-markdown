@@ -6,9 +6,13 @@ const MDParseLine = require("./utils/mdParseLine");
 // ## filterFileWithTags
 // **Main function** to parse and filter all source code lines with functions to decide how the line must be printed in the markdown document.
 // This function returns an object with this data:
+//<details>
+//<summary>Function parameters</summary>
+//<br>
 // - IGNORE  - `boolean` - that indicates no line was parsed to markdown
 // - MDLINES - `array`   - array with all markdown lines filter by tags
 // - NOTAGSRESULT - `array` - array with all lines as block code if no tags was found in source code
+//</details>
 //@CBStart
 const filterFileWithTags = (fileData) => {
   const fileByTags = {
