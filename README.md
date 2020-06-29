@@ -35,7 +35,7 @@ After installing js-to-markdown globaly, you can run it directly from the comman
 Here's how to js-to-markdown using `js-to-markdown.config.js` as a configuration file:
 
 ```sh
-js-to-markdown -c js-to-markdown.config.js
+js-to-markdown -c ./js-to-markdown.config.js
 ```
 
 ## Configuration File

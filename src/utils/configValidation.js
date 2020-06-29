@@ -46,14 +46,14 @@ exports.treatConfigurationProps = (configuration) => {
 //@CBEnd
 
 //---
-// ## isValideDirectoriesProps
+// ## isValidDirectoriesProps
 // Validates if the directory set in `input` and `output` configuration properties exists
 //@CBStart
-exports.isValideDirectoriesProps = () => {
+exports.isValidDirectoriesProps = () => {
   if (
     !globalConfiguration.input ||
     globalConfiguration.input === "" ||
-    !fs.existsSync(globalConfiguration.input)
+    !this.isValidPath(globalConfiguration.input)
   ) {
     commonUtils.logError(
       `Input directory in config file does not exist (${globalConfiguration.input}).`
@@ -63,7 +63,7 @@ exports.isValideDirectoriesProps = () => {
   if (
     !globalConfiguration.output ||
     globalConfiguration.output === "" ||
-    !fs.existsSync(globalConfiguration.output)
+    !this.isValidPath(globalConfiguration.output)
   ) {
     commonUtils.logError(
       `Output directory in config file does not exist (${globalConfiguration.output}).`
@@ -73,3 +73,11 @@ exports.isValideDirectoriesProps = () => {
   return true;
 };
 //@CBEnd
+
+//---
+// ## isValidPath
+// Encapsulates the existsSync function of fs tha indicates if a path exists.
+//@CBStart
+exports.isValidPath = (path) => {
+  return fs.existsSync(path)
+}

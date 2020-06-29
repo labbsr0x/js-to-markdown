@@ -1,13 +1,13 @@
 {
   "name": "js-to-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --config ./jest.config.json"
   },
   "author": "Davi Sena",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "colors": "^1.4.0",
     "glob": "^7.1.6",

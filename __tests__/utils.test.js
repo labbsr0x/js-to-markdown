@@ -11,21 +11,21 @@ global.globalConfiguration = {
 };
 
 describe("Testing Utils functions", () => {
-  it("Test function isValideDirectoriesProps with invalid input directory", () => {
+  it("Test function isValidDirectoriesProps with invalid input directory", () => {
     globalConfiguration.input = "./notExistDir";
-    const result = ConfigUtils.isValideDirectoriesProps();
+    const result = ConfigUtils.isValidDirectoriesProps();
     expect(result).toEqual(false);
   });
-  it("Test function isValideDirectoriesProps with invalid output directory", () => {
+  it("Test function isValidDirectoriesProps with invalid output directory", () => {
     globalConfiguration.input = "./__tests__"; //valid directory
     globalConfiguration.output = "./notExistDir";
-    const result = ConfigUtils.isValideDirectoriesProps();
+    const result = ConfigUtils.isValidDirectoriesProps();
     expect(result).toEqual(false);
   });
-  it("Test function isValideDirectoriesProps with valid directories", () => {
+  it("Test function isValidDirectoriesProps with valid directories", () => {
     globalConfiguration.input = "./__tests__";
     globalConfiguration.output = "./__tests__/";
-    const result = ConfigUtils.isValideDirectoriesProps();
+    const result = ConfigUtils.isValidDirectoriesProps();
     expect(result).toEqual(true);
   });
 

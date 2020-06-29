@@ -3,6 +3,7 @@ const glob = require("glob");
 const fs = require("fs");
 const colors = require("colors");
 const yargs = require("yargs");
+const path = require('path');
 
 const options = yargs.usage("Usage: --config <ConfigFilePath>").option("c", {
   alias: "config",
@@ -12,7 +13,6 @@ const options = yargs.usage("Usage: --config <ConfigFilePath>").option("c", {
 }).argv;
 
 /** LOCAL DEPENDENCIES */
-const configuration = require(`${options.config}`);
 const CommonUtils = require("./src/utils/common");
 const ConfigUtils = require("./src/utils/configValidation");
 const FileUtils = require("./src/utils/writeInFile");
@@ -20,6 +20,16 @@ const ParsePropTypes = require("./src/propTypesToTable");
 var reactDocs = require("react-docgen");
 const filterFileWithTags = require("./src/filterFileWithTags");
 
+let configuration = '';
+
+if(ConfigUtils.isValidPath(options.config)){
+  const pathResolved = path.resolve(options.config.toString())
+  configuration = require(`${pathResolved}`);
+} else {
+  CommonUtils.logError('Invalid configuration file path.')
+  process.exit(10)
+}
+  
 const arrayOfComponentsToIndex = [];
 
 const getFilesFromInputDirectories = function (callback) {
@@ -105,6 +115,6 @@ const processInputFile = (filePath) => {
 /** MAIN */
 global.globalConfiguration = ConfigUtils.treatConfigurationProps(configuration);
 
-if (ConfigUtils.isValideDirectoriesProps()) {
+if (ConfigUtils.isValidDirectoriesProps()) {
   getFilesFromInputDirectories((err, res) => treatFiles(err, res));
 }
