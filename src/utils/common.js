@@ -28,6 +28,29 @@ exports.createMDFilePath = (componentName) => {
 //@CBEnd
 
 //---
+// ## getComponentNameWithRegex
+// This function extracts the component name from the file declaration
+// i.e:
+// - if the file declares the component as `function FunctionName` the return will be `FunctionName`
+// - if is declared  as `class FunctionName` the return will be `FunctionName`
+// - if is declared  as `export default class FunctionName` the return will be `FunctionName`
+//@CBStart
+exports.getComponentNameWithRegex = (fileData) => {
+  const componentNameRegex = new RegExp(
+    /^.*(?:export)*\s*(?:default)*\s*(?:class|function)\s*([\S_]*)/gm
+  );
+
+  const regexResult = componentNameRegex.exec(fileData);
+
+  if (regexResult && regexResult.length > 1) {
+    return regexResult[1];
+  }
+
+  return undefined;
+};
+//@CBEnd
+
+//---
 // ## Console log functions
 // Functions used to put some style in the output message that is presented to user.
 // It uses the `color` dependency to color the output.

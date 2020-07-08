@@ -4,6 +4,7 @@ const ConfigUtils = require("../src/utils/configValidation");
 const PropTypeParse = require("../src/propTypesToTable");
 const mockPropType = require("./mocks/mockPropTypes");
 const mockPropTypeResult = require("./mocks/mockPropTypesResult");
+const { italic } = require("colors");
 
 global.globalConfiguration = {
   input: "./mocks",
@@ -84,5 +85,25 @@ describe("Testing Utils functions", () => {
       .replace(/ /g, "");
     expect(resultObject.length).toEqual(mockPropTypeResult.length);
     expect(resultAsString).toMatch(mockResultAsString);
+  });
+
+  it("Test the getComponentNameWithRegex function", () => {
+    const declarations = [
+      "function ComponentName",
+      "class ComponentName",
+      "export function ComponentName",
+      "export default function ComponentName",
+      "export class ComponentName",
+      "export default class ComponentName",
+    ];
+
+    declarations.forEach((declaration) => {
+      expect(CommonUtils.getComponentNameWithRegex(declaration)).toEqual(
+        "ComponentName"
+      );
+    });
+
+    expect(CommonUtils.getComponentNameWithRegex(undefined)).toEqual(undefined);
+    expect(CommonUtils.getComponentNameWithRegex("")).toEqual(undefined);
   });
 });
