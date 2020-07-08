@@ -25,7 +25,7 @@ A node program to generate markdown automatically from js files. Pull requests a
 First install js-to-markdown globaly:
 
 ```sh
-npm install js-to-storybook --global
+npm install js-to-markdown --global
 ```
 
 ## Running from command line
